@@ -7,17 +7,17 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 35.8522, 45.8738 )
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="PlayerShip" type="Sprite" parent="."]
-position = Vector2( 0.0377121, -40.286 )
+position = Vector2( 0.0377121, 5.78693 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.280624, -46.3016 )
+position = Vector2( 0.280624, -0.228668 )
 shape = SubResource( 1 )
 
 [node name="Fire" type="Sprite" parent="."]
-position = Vector2( 0.154812, 6.7382 )
+position = Vector2( 0.154812, 52.8111 )
 texture = ExtResource( 3 )
