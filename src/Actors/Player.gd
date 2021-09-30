@@ -26,8 +26,14 @@ func _physics_process(delta):
 		var bullet = bulletPrefab.instance()
 		get_parent().add_child(bullet)
 		bullet.add_collision_exception_with(self)
-		bullet.set_position(position)
+		bullet.set_position($BulletSpawnLocation1.global_position)
 		bullet.set_rotation(rotation)
+		
+		var bullet2 = bulletPrefab.instance()
+		get_parent().add_child(bullet2)
+		bullet2.add_collision_exception_with(self)
+		bullet2.set_position($BulletSpawnLocation2.global_position)
+		bullet2.set_rotation(rotation)
 	
 	rotation += rotation_dir * ROTATION_SPEED * delta
 	move_and_slide(velocity * SPEED * delta)
