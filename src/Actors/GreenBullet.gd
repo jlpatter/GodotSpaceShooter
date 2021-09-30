@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const SPEED = 10000.0
+const SPEED = 30000.0
 
 var delete_time = 10.0
 
