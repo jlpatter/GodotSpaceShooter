@@ -24,13 +24,17 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("shoot"):
 		var bullet = bulletPrefab.instance()
-		get_parent().add_child(bullet)
+		for child_bullet in get_parent().get_node("PlayerBullets").get_children():
+			bullet.add_collision_exception_with(child_bullet)
+		get_parent().get_node("PlayerBullets").add_child(bullet)
 		bullet.add_collision_exception_with(self)
 		bullet.set_position($BulletSpawnLocation1.global_position)
 		bullet.set_rotation(rotation)
 		
 		var bullet2 = bulletPrefab.instance()
-		get_parent().add_child(bullet2)
+		for child_bullet in get_parent().get_node("PlayerBullets").get_children():
+			bullet2.add_collision_exception_with(child_bullet)
+		get_parent().get_node("PlayerBullets").add_child(bullet2)
 		bullet2.add_collision_exception_with(self)
 		bullet2.set_position($BulletSpawnLocation2.global_position)
 		bullet2.set_rotation(rotation)
