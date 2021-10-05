@@ -18,6 +18,8 @@ func _physics_process(delta):
 	else:
 		if velocity.length() > Vector2.ZERO.length():
 			velocity -= velocity.normalized() * DECEL_SPEED * delta
+			if velocity.length() < Vector2.ONE.length():
+				velocity = Vector2.ZERO
 	
 	if Input.is_action_pressed("move_left"):
 		rotation_dir -= 1
