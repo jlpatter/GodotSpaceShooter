@@ -1,16 +1,23 @@
 extends KinematicBody2D
 
-const SPEED = 10000.0
+const SPEED = 500.0
+const DECEL_SPEED = 250.0
 const ROTATION_SPEED = 2.0
 
+var velocity = Vector2.ZERO
 onready var bulletPrefab = preload("res://src/Actors/GreenBullet.tscn")
 
 func _physics_process(delta):
 	var rotation_dir = 0.0
-	var velocity = Vector2(
-		0.0,
-		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	).rotated(rotation)
+	
+	if Input.get_action_strength("move_down") or Input.get_action_strength("move_up"):
+		velocity += Vector2(
+			0.0,
+			Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+		).rotated(rotation) * SPEED * delta
+	else:
+		if velocity.length() > Vector2.ZERO.length():
+			velocity -= velocity.normalized() * DECEL_SPEED * delta
 	
 	if Input.is_action_pressed("move_left"):
 		rotation_dir -= 1
@@ -40,4 +47,4 @@ func _physics_process(delta):
 		bullet2.set_rotation(rotation)
 	
 	rotation += rotation_dir * ROTATION_SPEED * delta
-	move_and_slide(velocity * SPEED * delta)
+	move_and_slide(velocity)
