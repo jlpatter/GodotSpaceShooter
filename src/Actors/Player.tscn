@@ -27,3 +27,8 @@ position = Vector2( 31.5, 10 )
 
 [node name="BulletSpawnLocation2" type="Node2D" parent="."]
 position = Vector2( -31.5, 10 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
