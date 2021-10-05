@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
-const SPEED = 30000.0
+var SPEED = 300.0
 
+var speed = SPEED
 var delete_time = 10.0
 
 func _physics_process(delta):
@@ -10,4 +11,7 @@ func _physics_process(delta):
 		queue_free()
 	
 	var dir = Vector2(0.0, -1.0).rotated(rotation)
-	move_and_slide(dir * SPEED * delta)
+	move_and_slide(dir * speed)
+
+func set_speed(var ship_speed):
+	speed = SPEED + ship_speed

@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-const SPEED = 500.0
-const DECEL_SPEED = 250.0
+const SPEED = 10.0
+const DECEL_SPEED = 5.0
 const ROTATION_SPEED = 2.0
 
 var velocity = Vector2.ZERO
@@ -14,10 +14,10 @@ func _physics_process(delta):
 		velocity += Vector2(
 			0.0,
 			Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-		).rotated(rotation) * SPEED * delta
+		).rotated(rotation) * SPEED
 	else:
 		if velocity.length() > Vector2.ZERO.length():
-			velocity -= velocity.normalized() * DECEL_SPEED * delta
+			velocity -= velocity.normalized() * DECEL_SPEED
 			if velocity.length() < Vector2.ONE.length():
 				velocity = Vector2.ZERO
 	
@@ -39,6 +39,7 @@ func _physics_process(delta):
 		bullet.add_collision_exception_with(self)
 		bullet.set_position($BulletSpawnLocation1.global_position)
 		bullet.set_rotation(rotation)
+		bullet.set_speed(velocity.length())
 		
 		var bullet2 = bulletPrefab.instance()
 		for child_bullet in get_parent().get_node("PlayerBullets").get_children():
@@ -47,6 +48,7 @@ func _physics_process(delta):
 		bullet2.add_collision_exception_with(self)
 		bullet2.set_position($BulletSpawnLocation2.global_position)
 		bullet2.set_rotation(rotation)
+		bullet2.set_speed(velocity.length())
 	
 	rotation += rotation_dir * ROTATION_SPEED * delta
 	move_and_slide(velocity)
