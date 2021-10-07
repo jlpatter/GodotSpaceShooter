@@ -5,7 +5,7 @@ const DECEL_SPEED = 5.0
 const ROTATION_SPEED = 2.0
 
 var velocity = Vector2.ZERO
-onready var bulletPrefab = preload("res://src/Actors/GreenBullet.tscn")
+onready var bullet_prefab = preload("res://src/Actors/GreenBullet.tscn")
 
 func _physics_process(delta):
 	var rotation_dir = 0.0
@@ -35,7 +35,7 @@ func _physics_process(delta):
 		$Fire.hide()
 	
 	if Input.is_action_just_pressed("shoot"):
-		var bullet = bulletPrefab.instance()
+		var bullet = bullet_prefab.instance()
 		for child_bullet in get_parent().get_node("PlayerBullets").get_children():
 			bullet.add_collision_exception_with(child_bullet)
 		get_parent().get_node("PlayerBullets").add_child(bullet)
@@ -44,7 +44,7 @@ func _physics_process(delta):
 		bullet.set_rotation(rotation)
 		bullet.set_speed(velocity.length())
 		
-		var bullet2 = bulletPrefab.instance()
+		var bullet2 = bullet_prefab.instance()
 		for child_bullet in get_parent().get_node("PlayerBullets").get_children():
 			bullet2.add_collision_exception_with(child_bullet)
 		get_parent().get_node("PlayerBullets").add_child(bullet2)
