@@ -5,6 +5,7 @@ const ROTATION_SPEED = 2.0
 
 var direction
 var is_exploding = false
+onready var fuel_prefab = preload("res://src/Actors/Fuel.tscn")
 
 func _ready():
 	var rng = RandomNumberGenerator.new()
@@ -32,6 +33,9 @@ func _on_Area2D_area_entered(area):
 		explode()
 
 func _on_ExplosionAnim_animation_finished():
+	var fuel = fuel_prefab.instance()
+	get_parent().add_child(fuel)
+	fuel.position = global_position
 	queue_free()
 
 func _on_ExplosionAnim_frame_changed():

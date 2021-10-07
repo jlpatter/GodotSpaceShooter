@@ -6,16 +6,17 @@ const ROTATION_SPEED = 2.0
 
 var velocity = Vector2.ZERO
 var health = 100
+var fuel = 0
 var is_exploding = false
 onready var bullet_prefab = preload("res://src/Actors/GreenBullet.tscn")
 
 func _physics_process(delta):
 	var rotation_dir = 0.0
 	
-	if Input.get_action_strength("move_down") or Input.get_action_strength("move_up"):
+	if Input.get_action_strength("move_up"):
 		velocity += Vector2(
 			0.0,
-			Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+			-Input.get_action_strength("move_up")
 		).rotated(rotation) * SPEED
 	else:
 		if velocity.length() > Vector2.ZERO.length():
@@ -57,6 +58,10 @@ func decrease_health(var amount):
 	get_parent().get_node("CanvasLayer/UI/HealthBar").value = health
 	if health <= 0 and not is_exploding:
 		explode()
+
+func increase_fuel(var amount):
+	fuel += amount
+	get_parent().get_node("CanvasLayer/UI/FuelBar").value = fuel
 
 func explode():
 	is_exploding = true
