@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jet.mp3-982f9518ca330ad2d92a81bcf122061e.mp3str"
+
+[deps]
+
+source_file="res://Assets/jet.mp3"
+dest_files=[ "res://.import/jet.mp3-982f9518ca330ad2d92a81bcf122061e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

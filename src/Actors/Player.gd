@@ -28,7 +28,10 @@ func _physics_process(delta):
 	
 	if Input.get_action_strength("move_up"):
 		$Fire.show()
+		if not $JetSound.playing:
+			$JetSound.play()
 	else:
+		$JetSound.stop()
 		$Fire.hide()
 	
 	if Input.is_action_just_pressed("shoot"):
