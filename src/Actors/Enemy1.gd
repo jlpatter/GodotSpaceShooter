@@ -2,6 +2,7 @@ extends Node2D
 
 const SPEED = 100.0
 
+var is_exploding = false
 onready var bullet_prefab = preload("res://src/Actors/RedBullet.tscn")
 
 func _physics_process(delta):
@@ -13,6 +14,7 @@ func _physics_process(delta):
 	position += dir * SPEED * delta
 
 func explode():
+	is_exploding = true
 	$GFX.hide()
 	$BulletTimer.stop()
 	$GenericExplosion.show()
@@ -28,7 +30,7 @@ func _on_BulletTimer_timeout():
 
 
 func _on_Area2D_body_entered(body):
-	if "Player" in body.name:
+	if "Player" in body.name and not body.is_exploding and not is_exploding:
 		body.explode()
 		explode()
 

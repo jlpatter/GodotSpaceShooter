@@ -5,6 +5,7 @@ const DECEL_SPEED = 5.0
 const ROTATION_SPEED = 2.0
 
 var velocity = Vector2.ZERO
+var is_exploding = false
 onready var bullet_prefab = preload("res://src/Actors/GreenBullet.tscn")
 
 func _physics_process(delta):
@@ -26,7 +27,7 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("move_right"):
 		rotation_dir += 1
 	
-	if Input.get_action_strength("move_up"):
+	if Input.get_action_strength("move_up") and not is_exploding:
 		$Fire.show()
 		if not $JetSound.playing:
 			$JetSound.play()
@@ -51,6 +52,7 @@ func _physics_process(delta):
 	move_and_slide(velocity)
 
 func explode():
+	is_exploding = true
 	var cam = Camera2D.new()
 	cam.position = $Camera2D.global_position
 	get_parent().add_child(cam)
