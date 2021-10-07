@@ -51,6 +51,10 @@ func _physics_process(delta):
 	move_and_slide(velocity)
 
 func explode():
+	var cam = Camera2D.new()
+	cam.position = $Camera2D.global_position
+	get_parent().add_child(cam)
+	cam.current = true
 	$GenericExplosion.show()
 	$GenericExplosion.play()
 	$GenericExplosion.play_audio()
