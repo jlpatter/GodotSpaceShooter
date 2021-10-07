@@ -42,6 +42,7 @@ visible = false
 frames = SubResource( 2 )
 speed_scale = 2.0
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="animation_finished" from="ExplosionAnim" to="." method="_on_ExplosionAnim_animation_finished"]
 [connection signal="frame_changed" from="ExplosionAnim" to="." method="_on_ExplosionAnim_frame_changed"]

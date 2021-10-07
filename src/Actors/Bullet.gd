@@ -1,4 +1,6 @@
-extends KinematicBody2D
+extends Node2D
+
+class_name Bullet
 
 var SPEED = 300.0
 
@@ -11,7 +13,7 @@ func _physics_process(delta):
 		queue_free()
 	
 	var dir = Vector2(0.0, -1.0).rotated(rotation)
-	move_and_slide(dir * speed)
+	position += dir * speed * delta
 
 func set_speed(var ship_speed):
 	speed = SPEED + ship_speed

@@ -20,17 +20,17 @@ func explode():
 	$ExplosionAnim.play()
 
 func _on_Area2D_body_entered(body):
-	if "GreenBullet" in body.name:
-		body.queue_free()
-		explode()
-	elif "Player" in body.name:
+	if "Player" in body.name:
 		body.queue_free()
 		explode()
 
+func _on_Area2D_area_entered(area):
+	if "GreenBullet" in area.get_parent().name:
+		area.get_parent().queue_free()
+		explode()
 
 func _on_ExplosionAnim_animation_finished():
 	queue_free()
-
 
 func _on_ExplosionAnim_frame_changed():
 	if $ExplosionAnim.frame == 3:

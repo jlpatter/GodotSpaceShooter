@@ -16,7 +16,6 @@ func _physics_process(delta):
 func _on_BulletTimer_timeout():
 	var bullet = bullet_prefab.instance()
 	get_parent().add_child(bullet)
-	bullet.add_collision_exception_with(self)
 	bullet.position = $BulletSpawnLocation.global_position
 	bullet.rotation = rotation
 	bullet.set_speed(SPEED)
