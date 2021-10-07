@@ -10,13 +10,12 @@ script = ExtResource( 1 )
 
 [node name="GFX" type="Polygon2D" parent="."]
 color = Color( 1, 0, 0, 1 )
-polygon = PoolVector2Array( 0, 0, 25, 0, 25, 25, 0, 25 )
+polygon = PoolVector2Array( -12.5, -12.5, 12.5, -12.5, 12.5, 12.5, -12.5, 12.5 )
 
 [node name="BulletSpawnLocation" type="Node2D" parent="."]
-position = Vector2( 12.5, 0 )
+position = Vector2( 0, -12.5 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 12.5, 12.5 )
 shape = SubResource( 1 )
