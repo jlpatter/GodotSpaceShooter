@@ -49,3 +49,14 @@ func _physics_process(delta):
 	
 	rotation += rotation_dir * ROTATION_SPEED * delta
 	move_and_slide(velocity)
+
+func explode():
+	$GenericExplosion.show()
+	$GenericExplosion.play()
+	$GenericExplosion.play_audio()
+	$PlayerShip.hide()
+	$Fire.hide()
+
+
+func _on_GenericExplosion_animation_finished():
+	queue_free()
