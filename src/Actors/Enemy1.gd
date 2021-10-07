@@ -12,6 +12,12 @@ func _physics_process(delta):
 	var dir = Vector2(0.0, -1.0).rotated(rotation)
 	position += dir * SPEED * delta
 
+func explode():
+	$GFX.hide()
+	$BulletTimer.stop()
+	$GenericExplosion.show()
+	$GenericExplosion.play()
+	$GenericExplosion.play_audio()
 
 func _on_BulletTimer_timeout():
 	var bullet = bullet_prefab.instance()
@@ -19,3 +25,17 @@ func _on_BulletTimer_timeout():
 	bullet.position = $BulletSpawnLocation.global_position
 	bullet.rotation = rotation
 	bullet.set_speed(SPEED)
+
+
+func _on_Area2D_body_entered(body):
+	if "Player" in body.name:
+		body.explode()
+		explode()
+
+func _on_Area2D_area_entered(area):
+	if "GreenBullet" in area.get_parent().name:
+		area.get_parent().queue_free()
+		explode()
+
+func _on_GenericExplosion_animation_finished():
+	queue_free()
