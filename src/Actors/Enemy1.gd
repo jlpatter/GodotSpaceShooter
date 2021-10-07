@@ -31,7 +31,7 @@ func _on_BulletTimer_timeout():
 
 func _on_Area2D_body_entered(body):
 	if "Player" in body.name and not body.is_exploding and not is_exploding:
-		body.explode()
+		body.decrease_health(1000)
 		explode()
 
 func _on_Area2D_area_entered(area):

@@ -5,6 +5,7 @@ const DECEL_SPEED = 5.0
 const ROTATION_SPEED = 2.0
 
 var velocity = Vector2.ZERO
+var health = 100
 var is_exploding = false
 onready var bullet_prefab = preload("res://src/Actors/GreenBullet.tscn")
 
@@ -50,6 +51,12 @@ func _physics_process(delta):
 	
 	rotation += rotation_dir * ROTATION_SPEED * delta
 	move_and_slide(velocity)
+
+func decrease_health(var amount):
+	health -= amount
+	get_parent().get_node("CanvasLayer/UI/HealthBar").value = health
+	if health <= 0 and not is_exploding:
+		explode()
 
 func explode():
 	is_exploding = true

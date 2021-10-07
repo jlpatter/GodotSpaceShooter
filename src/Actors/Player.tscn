@@ -33,6 +33,7 @@ drag_margin_v_enabled = true
 
 [node name="JetSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+volume_db = -5.0
 
 [node name="GenericExplosion" parent="." instance=ExtResource( 5 )]
 visible = false
