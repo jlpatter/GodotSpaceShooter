@@ -4,6 +4,7 @@ const SPEED = 10.0
 const WARP_IN_SPEED = 1000.0
 const DECEL_SPEED = 5.0
 const ROTATION_SPEED = 2.0
+const GOD_MODE = false
 
 var velocity = Vector2.ZERO
 var map = null
@@ -81,6 +82,7 @@ func warp_out():
 	$PlayerShip.hide()
 	$WarpOut.show()
 	$WarpOut.play()
+	$WarpSound.play()
 	$JetSound.stop()
 	$Fire.hide()
 
@@ -96,10 +98,11 @@ func activate_map():
 		map.hide()
 
 func decrease_health(var amount):
-	PlayerVariables.health -= amount
-	get_parent().get_node("CanvasLayer/UI/HealthBar").value = PlayerVariables.health
-	if PlayerVariables.health <= 0 and not is_exploding:
-		explode()
+	if not GOD_MODE:
+		PlayerVariables.health -= amount
+		get_parent().get_node("CanvasLayer/UI/HealthBar").value = PlayerVariables.health
+		if PlayerVariables.health <= 0 and not is_exploding:
+			explode()
 
 func increase_fuel(var amount):
 	PlayerVariables.fuel += amount
