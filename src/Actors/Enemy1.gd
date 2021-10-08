@@ -5,6 +5,10 @@ const SPEED = 100.0
 var is_exploding = false
 onready var bullet_prefab = preload("res://src/Actors/RedBullet.tscn")
 
+func _ready():
+	$BulletTimer.wait_time = GlobalVariables.rng.randf() * 2 + 1
+	$BulletTimer.start()
+
 func _physics_process(delta):
 	var player_node = get_parent().get_node_or_null("Player")
 	if player_node != null:
@@ -22,6 +26,7 @@ func explode():
 	$GenericExplosion.play_audio()
 
 func _on_BulletTimer_timeout():
+	$BulletTimer.wait_time = GlobalVariables.rng.randf() * 2 + 1
 	var bullet = bullet_prefab.instance()
 	get_parent().add_child(bullet)
 	bullet.position = $BulletSpawnLocation.global_position
