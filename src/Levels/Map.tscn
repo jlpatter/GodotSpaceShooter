@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Star.png" type="Texture" id=1]
+[ext_resource path="res://Assets/StarSelected.png" type="Texture" id=2]
+[ext_resource path="res://Assets/PlayerShip.png" type="Texture" id=3]
+[ext_resource path="res://src/Levels/Map.gd" type="Script" id=4]
+
+[node name="Map" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Destinations" type="Node" parent="."]
+
+[node name="Destination" type="TextureButton" parent="Destinations"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 265.0
+margin_top = -55.0
+margin_right = 310.0
+margin_bottom = 31.0
+toggle_mode = true
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Destination2" type="TextureButton" parent="Destinations"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 134.686
+margin_top = -121.746
+margin_right = 179.686
+margin_bottom = -35.7462
+toggle_mode = true
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Destination3" type="TextureButton" parent="Destinations"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 56.2858
+margin_top = -17.9188
+margin_right = 101.286
+margin_bottom = 68.0812
+toggle_mode = true
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EngageButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 23.0
+margin_top = -77.0
+margin_right = 99.0
+margin_bottom = -25.0
+text = "Engage!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoBackButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -102.0
+margin_top = -77.0
+margin_right = -26.0
+margin_bottom = -25.0
+text = "Go Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerShip" type="Sprite" parent="."]
+position = Vector2( 204.022, 274.708 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Star" type="Sprite" parent="."]
+position = Vector2( 200.843, 331.389 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 1 )
+
+[connection signal="pressed" from="EngageButton" to="." method="_on_EngageButton_pressed"]
