@@ -1,5 +1,6 @@
 extends TextureButton
 
+var id = -1
 var is_current = false
 
 func inside_of(var ui_element):

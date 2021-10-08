@@ -27,6 +27,7 @@ config/icon="res://icon.png"
 
 GlobalVariables="*res://src/GlobalVariables.gd"
 PlayerVariables="*res://src/PlayerVariables.gd"
+LevelVariables="*res://src/LevelVariables.gd"
 
 [input]
 
