@@ -72,6 +72,9 @@ func warp_in():
 
 func warp_out():
 	is_warping_out = true
+	$PlayerShip.hide()
+	$WarpOut.show()
+	$WarpOut.play()
 	$JetSound.stop()
 	$Fire.hide()
 
