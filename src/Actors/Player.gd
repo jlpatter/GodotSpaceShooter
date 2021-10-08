@@ -109,8 +109,9 @@ func decrease_health(var amount):
 			explode()
 
 func increase_fuel(var amount):
-	PlayerVariables.fuel += amount
-	get_parent().get_node("CanvasLayer/UI/FuelBar").value = PlayerVariables.fuel
+	if PlayerVariables.fuel + amount <= 100:
+		PlayerVariables.fuel += amount
+		get_parent().get_node("CanvasLayer/UI/FuelBar").value = PlayerVariables.fuel
 
 func decrease_fuel(var amount):
 	PlayerVariables.fuel -= amount

@@ -4,6 +4,8 @@ onready var asteroid_prefab = preload("res://src/Actors/Asteroid.tscn")
 onready var enemy_prefab = preload("res://src/Actors/Enemy1.tscn")
 
 func _ready():
+	get_node("ParallaxBackground/ParallaxLayer2/LargeSun").position = Vector2(GlobalVariables.rng.randf() * 2000 - 1000, GlobalVariables.rng.randf() * 2000 - 1000)
+	
 	var asteroid_num = GlobalVariables.rng.randi() % 3 + 2
 	var enemy_num = GlobalVariables.rng.randi() % 7 + 3
 	
