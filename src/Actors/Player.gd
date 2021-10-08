@@ -4,7 +4,7 @@ const SPEED = 10.0
 const WARP_IN_SPEED = 1000.0
 const DECEL_SPEED = 5.0
 const ROTATION_SPEED = 2.0
-const GOD_MODE = false
+const GOD_MODE = true
 
 var velocity = Vector2.ZERO
 var map = null
@@ -76,6 +76,10 @@ func _physics_process(delta):
 
 func warp_in():
 	velocity = Vector2(0.0, -1.0) * WARP_IN_SPEED
+	$PlayerShip.hide()
+	$WarpIn.show()
+	$WarpIn.play()
+	$WarpInSound.play()
 
 func warp_out():
 	is_warping_out = true
@@ -127,3 +131,9 @@ func explode():
 
 func _on_GenericExplosion_animation_finished():
 	queue_free()
+
+
+func _on_WarpIn_animation_finished():
+	$WarpIn.hide()
+	$WarpInSound.stop()
+	$PlayerShip.show()
