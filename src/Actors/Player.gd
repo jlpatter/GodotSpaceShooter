@@ -7,8 +7,11 @@ const ROTATION_SPEED = 2.0
 var velocity = Vector2.ZERO
 var health = 100
 var fuel = 0
+var map
+var map_is_active = false
 var is_exploding = false
 onready var bullet_prefab = preload("res://src/Actors/GreenBullet.tscn")
+onready var map_prefab = preload("res://src/Levels/Map.tscn")
 
 func _physics_process(delta):
 	var rotation_dir = 0.0
@@ -37,6 +40,9 @@ func _physics_process(delta):
 		$JetSound.stop()
 		$Fire.hide()
 	
+	if Input.is_action_just_pressed("map"):
+		activate_map()
+	
 	if Input.is_action_just_pressed("shoot"):
 		var bullet = bullet_prefab.instance()
 		get_parent().add_child(bullet)
@@ -52,6 +58,15 @@ func _physics_process(delta):
 	
 	rotation += rotation_dir * ROTATION_SPEED * delta
 	move_and_slide(velocity)
+
+func activate_map():
+	if not map_is_active:
+		map_is_active = true
+		map = map_prefab.instance()
+		get_parent().get_node("CanvasLayer").add_child(map)
+	else:
+		map_is_active = false
+		map.queue_free()
 
 func decrease_health(var amount):
 	health -= amount

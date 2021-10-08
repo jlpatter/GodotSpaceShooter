@@ -13,3 +13,7 @@ func _on_EngageButton_pressed():
 	else:
 		# Blah blah do something about loading properties of the selected destination
 		get_tree().change_scene("res://src/Levels/Level1.tscn")
+
+
+func _on_GoBackButton_pressed():
+	get_parent().get_parent().get_node("Player").activate_map()

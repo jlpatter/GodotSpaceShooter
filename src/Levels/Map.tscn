@@ -13,6 +13,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Destinations" type="Node" parent="."]
 
 [node name="Destination" type="TextureButton" parent="Destinations"]
@@ -72,9 +80,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = 23.0
-margin_top = -77.0
+margin_top = -84.0
 margin_right = 99.0
-margin_bottom = -25.0
+margin_bottom = -32.0
 text = "Engage!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -85,10 +93,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -102.0
-margin_top = -77.0
-margin_right = -26.0
-margin_bottom = -25.0
+margin_left = -99.881
+margin_top = -84.0
+margin_right = -23.881
+margin_bottom = -32.0
 text = "Go Back"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -106,3 +114,4 @@ scale = Vector2( 5, 5 )
 texture = ExtResource( 1 )
 
 [connection signal="pressed" from="EngageButton" to="." method="_on_EngageButton_pressed"]
+[connection signal="pressed" from="GoBackButton" to="." method="_on_GoBackButton_pressed"]

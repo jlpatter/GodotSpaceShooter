@@ -35,7 +35,7 @@ func _on_Area2D_body_entered(body):
 		explode()
 
 func _on_Area2D_area_entered(area):
-	if "GreenBullet" in area.get_parent().name:
+	if "GreenBullet" in area.get_parent().name and not is_exploding:
 		area.get_parent().queue_free()
 		explode()
 
