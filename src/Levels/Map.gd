@@ -13,6 +13,10 @@ func _ready():
 			x_loc = GlobalVariables.rng.randf() * (rect_size.x - dest_marker.rect_size.x)
 			y_loc = GlobalVariables.rng.randf() * (rect_size.y - dest_marker.rect_size.y)
 			dest_marker.rect_position = Vector2(x_loc, y_loc)
+		if i == 0:
+			dest_marker.is_current = true
+			$CurrentPointer.position.x = dest_marker.rect_position.x + dest_marker.rect_size.x / 2.0 + 2.5
+			$CurrentPointer.position.y = dest_marker.rect_position.y - 15.0
 
 func _on_EngageButton_pressed():
 	var pressed_destinations = []
