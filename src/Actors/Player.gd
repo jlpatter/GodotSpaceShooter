@@ -5,8 +5,6 @@ const DECEL_SPEED = 5.0
 const ROTATION_SPEED = 2.0
 
 var velocity = Vector2.ZERO
-var health = 100
-var fuel = 0
 var map
 var map_is_active = false
 var is_exploding = false
@@ -69,14 +67,18 @@ func activate_map():
 		map.queue_free()
 
 func decrease_health(var amount):
-	health -= amount
-	get_parent().get_node("CanvasLayer/UI/HealthBar").value = health
-	if health <= 0 and not is_exploding:
+	PlayerVariables.health -= amount
+	get_parent().get_node("CanvasLayer/UI/HealthBar").value = PlayerVariables.health
+	if PlayerVariables.health <= 0 and not is_exploding:
 		explode()
 
 func increase_fuel(var amount):
-	fuel += amount
-	get_parent().get_node("CanvasLayer/UI/FuelBar").value = fuel
+	PlayerVariables.fuel += amount
+	get_parent().get_node("CanvasLayer/UI/FuelBar").value = PlayerVariables.fuel
+
+func decrease_fuel(var amount):
+	PlayerVariables.fuel -= amount
+	get_parent().get_node("CanvasLayer/UI/FuelBar").value = PlayerVariables.fuel
 
 func explode():
 	is_exploding = true

@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="SpaceShooter"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerVariables="*res://src/PlayerVariables.gd"
+
 [input]
 
 move_up={
