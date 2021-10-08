@@ -18,8 +18,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Destinations" type="Node" parent="."]
-
 [node name="UIRect" type="ReferenceRect" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
@@ -29,6 +27,13 @@ margin_left = -162.238
 margin_top = -144.941
 margin_right = 157.762
 margin_bottom = -11.9406
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Destinations" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

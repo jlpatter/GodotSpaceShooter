@@ -23,4 +23,4 @@ texture = ExtResource( 3 )
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 5 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 525.305, 274.239 )
+position = Vector2( 516.588, 2314.93 )

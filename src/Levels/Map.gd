@@ -31,7 +31,8 @@ func _on_EngageButton_pressed():
 	else:
 		# TODO: Blah blah do something about loading properties of the selected destination
 		get_parent().get_parent().get_node("Player").decrease_fuel(20)
-		get_tree().change_scene("res://src/Levels/Level1.tscn")
+		get_parent().get_parent().get_node("Player").activate_map()
+		get_parent().get_parent().get_node("Player").warp_out()
 
 
 func _on_GoBackButton_pressed():
