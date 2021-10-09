@@ -1,7 +1,9 @@
 extends Node2D
 
 const SPEED = 100.0
+const DISTANCE_TO_DETECT_PLAYER = 500.0
 
+var is_following_player = false
 var is_exploding = false
 onready var bullet_prefab = preload("res://src/Actors/RedBullet.tscn")
 
@@ -11,11 +13,13 @@ func _ready():
 
 func _physics_process(delta):
 	var player_node = get_parent().get_node_or_null("Player")
-	if player_node != null:
+	if player_node != null and global_position.distance_to(player_node.global_position) < DISTANCE_TO_DETECT_PLAYER:
+		is_following_player = true
 		look_at(player_node.global_position)
 		rotation_degrees += 90
-	var dir = Vector2(0.0, -1.0).rotated(rotation)
-	position += dir * SPEED * delta
+		position += Vector2(0.0, -1.0).rotated(rotation) * SPEED * delta
+	else:
+		is_following_player = false
 
 func explode():
 	is_exploding = true
@@ -27,11 +31,12 @@ func explode():
 
 func _on_BulletTimer_timeout():
 	$BulletTimer.wait_time = GlobalVariables.rng.randf() * 2 + 1
-	var bullet = bullet_prefab.instance()
-	get_parent().add_child(bullet)
-	bullet.position = $BulletSpawnLocation.global_position
-	bullet.rotation = rotation
-	bullet.set_speed(SPEED)
+	if is_following_player:
+		var bullet = bullet_prefab.instance()
+		get_parent().add_child(bullet)
+		bullet.position = $BulletSpawnLocation.global_position
+		bullet.rotation = rotation
+		bullet.set_speed(SPEED)
 
 
 func _on_Area2D_body_entered(body):
