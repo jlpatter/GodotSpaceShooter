@@ -104,10 +104,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -98.836
-margin_top = -37.0
-margin_right = -31.836
-margin_bottom = -17.0
+margin_left = -144.056
+margin_top = -58.0
+margin_right = -30.056
+margin_bottom = -13.0
 text = "Star Map"
 __meta__ = {
 "_edit_use_anchors_": false
