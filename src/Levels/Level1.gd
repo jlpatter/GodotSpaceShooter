@@ -4,11 +4,14 @@ onready var asteroid_prefab = preload("res://src/Actors/Asteroid.tscn")
 onready var asteroid_arrow_prefab = preload("res://src/Misc/AsteroidArrow.tscn")
 onready var enemy_prefab = preload("res://src/Actors/Enemy1.tscn")
 onready var moon_prefab = preload("res://Assets/LargeMoon.png")
+onready var ice_prefab = preload("res://Assets/LargeIce.png")
 
 func _ready():
-	var random_parallax = GlobalVariables.rng.randi() % 2
+	var random_parallax = GlobalVariables.rng.randi() % 3
 	if random_parallax == 1:
 		get_node("ParallaxBackground/ParallaxLayer2/LargeSun").texture = moon_prefab
+	elif random_parallax == 2:
+		get_node("ParallaxBackground/ParallaxLayer2/LargeSun").texture = ice_prefab
 	
 	get_node("ParallaxBackground/ParallaxLayer2/LargeSun").position = Vector2(GlobalVariables.rng.randf() * 2000 - 1000, GlobalVariables.rng.randf() * 1000 - 500)
 	
