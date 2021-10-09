@@ -9,7 +9,7 @@ func _ready():
 	if random_parallax == 1:
 		get_node("ParallaxBackground/ParallaxLayer2/LargeSun").texture = moon_prefab
 	
-	get_node("ParallaxBackground/ParallaxLayer2/LargeSun").position = Vector2(GlobalVariables.rng.randf() * 2000 - 1000, GlobalVariables.rng.randf() * 2000 - 1000)
+	get_node("ParallaxBackground/ParallaxLayer2/LargeSun").position = Vector2(GlobalVariables.rng.randf() * 2000 - 1000, GlobalVariables.rng.randf() * 1000 - 500)
 	
 	var asteroid_num = GlobalVariables.rng.randi() % 3 + 2
 	var enemy_num = GlobalVariables.rng.randi() % 7 + 3

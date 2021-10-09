@@ -21,9 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="SpaceShooter"
-run/main_scene="res://src/Levels/Level1.tscn"
-boot_splash/image="res://Assets/GELogo.png"
-boot_splash/bg_color=Color( 1, 1, 1, 1 )
+run/main_scene="res://src/Misc/GippiesSplash.tscn"
 config/icon="res://Assets/GippiesProductionLogo.png"
 
 [autoload]
