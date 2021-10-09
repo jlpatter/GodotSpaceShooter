@@ -18,3 +18,7 @@ func _ready():
 		var enemy = enemy_prefab.instance()
 		add_child(enemy)
 		enemy.position = Vector2(GlobalVariables.rng.randf() * 1000 - 100, GlobalVariables.rng.randf() * 1000 - 100)
+
+func _process(delta):
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
