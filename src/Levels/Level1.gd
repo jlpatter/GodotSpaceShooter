@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var asteroid_prefab = preload("res://src/Actors/Asteroid.tscn")
+onready var asteroid_arrow_prefab = preload("res://src/Misc/AsteroidArrow.tscn")
 onready var enemy_prefab = preload("res://src/Actors/Enemy1.tscn")
 onready var moon_prefab = preload("res://Assets/LargeMoon.png")
 
@@ -16,7 +17,10 @@ func _ready():
 	
 	for i in asteroid_num:
 		var asteroid = asteroid_prefab.instance()
+		var asteroid_arrow = asteroid_arrow_prefab.instance()
 		add_child(asteroid)
+		add_child(asteroid_arrow)
+		asteroid_arrow.set_asteroid(asteroid)
 		asteroid.position = Vector2(GlobalVariables.rng.randf() * 1000 - 100, GlobalVariables.rng.randf() * 1000 - 100)
 	
 	for i in enemy_num:
