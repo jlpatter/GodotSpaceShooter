@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Misc/UI.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GreenGem2.png" type="Texture" id=2]
 [ext_resource path="res://Assets/RedGem.png" type="Texture" id=3]
 [ext_resource path="res://Assets/BlueGem.png" type="Texture" id=4]
+[ext_resource path="res://Assets/YellowGem.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0, 0, 1 )
@@ -160,5 +161,18 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="YellowGem" type="TextureRect" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -233.641
+margin_top = -69.209
+margin_right = -193.641
+margin_bottom = -29.209
+texture = ExtResource( 5 )
+expand = true
 
 [connection signal="pressed" from="StarMapBtn" to="." method="_on_StarMapBtn_pressed"]
