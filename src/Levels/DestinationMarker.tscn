@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/StarVisited.png" type="Texture" id=4]
 
 [node name="DestinationMarker" type="Control"]
-margin_right = 52.0
+margin_right = 49.0
 margin_bottom = 91.0
 script = ExtResource( 3 )
 __meta__ = {
