@@ -1,4 +1,4 @@
-extends TextureButton
+extends Control
 
 var id = -1
 var is_current = false
@@ -12,11 +12,11 @@ func inside_of_any(var ui_elements):
 			return true
 	return false
 
-func _on_DestinationMarker_toggled(button_pressed):
+func _on_Button_toggled(button_pressed):
 	if button_pressed:
 		if is_current:
-			pressed = false
+			$Button.pressed = false
 		else:
 			for c in get_parent().get_children():
-				if c != self and c.pressed:
-					c.pressed = false
+				if c != self and c.get_node("Button").pressed:
+					c.get_node("Button").pressed = false
