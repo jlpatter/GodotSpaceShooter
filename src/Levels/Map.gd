@@ -39,6 +39,13 @@ func _ready():
 			if dest_marker.is_current:
 				$CurrentPointer.position.x = dest_marker.rect_position.x + dest_marker.rect_size.x / 2.0
 				$CurrentPointer.position.y = dest_marker.rect_position.y - 15.0
+	show_gems()
+
+func show_gems():
+	if PlayerVariables.has_green:
+		$GreenGem.show()
+	if PlayerVariables.has_red:
+		$RedGem.show()
 
 func _on_EngageButton_pressed():
 	var pressed_destinations = []

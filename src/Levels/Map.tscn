@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Levels/CurrentPointer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/GreenGem2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/RedGem.png" type="Texture" id=3]
 [ext_resource path="res://src/Levels/Map.gd" type="Script" id=4]
 
 [node name="Map" type="Control"]
@@ -24,10 +26,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -162.238
-margin_top = -144.941
-margin_right = 157.762
-margin_bottom = -11.9406
+margin_left = -502.0
+margin_top = -145.0
+margin_right = 505.0
+margin_bottom = -12.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -86,6 +88,31 @@ __meta__ = {
 
 [node name="CurrentPointer" parent="." instance=ExtResource( 1 )]
 position = Vector2( 341.752, 276.827 )
+
+[node name="GreenGem" type="TextureRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 141.189
+margin_top = -96.6482
+margin_right = 174.189
+margin_bottom = -40.6482
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RedGem" type="TextureRect" parent="."]
+visible = false
+margin_left = 710.446
+margin_top = 508.818
+margin_right = 755.446
+margin_bottom = 551.818
+texture = ExtResource( 3 )
+expand = true
 
 [connection signal="pressed" from="EngageButton" to="." method="_on_EngageButton_pressed"]
 [connection signal="pressed" from="GoBackButton" to="." method="_on_GoBackButton_pressed"]
