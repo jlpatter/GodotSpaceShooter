@@ -91,6 +91,7 @@ func warp_out():
 	$Fire.hide()
 
 func add_gem(var gem):
+	$PickupGemSound.play()
 	if gem == "Green":
 		PlayerVariables.has_green = true
 		get_parent().get_node("CanvasLayer/UI/GreenGem").show()
