@@ -90,6 +90,11 @@ func warp_out():
 	$JetSound.stop()
 	$Fire.hide()
 
+func add_gem(var gem):
+	if gem == "Green":
+		PlayerVariables.has_green = true
+		get_parent().get_node("CanvasLayer/UI/GreenGem").show()
+
 func activate_map():
 	if not map_is_active:
 		map_is_active = true

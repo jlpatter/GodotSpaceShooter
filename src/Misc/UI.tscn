@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Misc/UI.gd" type="Script" id=1]
+[ext_resource path="res://Assets/GreenGem2.png" type="Texture" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0, 0, 1 )
@@ -109,6 +110,22 @@ margin_top = -58.0
 margin_right = -30.056
 margin_bottom = -13.0
 text = "Star Map"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GreenGem" type="TextureRect" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -317.0
+margin_top = -70.0
+margin_right = -288.0
+margin_bottom = -13.0
+texture = ExtResource( 2 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
