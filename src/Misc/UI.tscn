@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Misc/UI.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GreenGem2.png" type="Texture" id=2]
 [ext_resource path="res://Assets/RedGem.png" type="Texture" id=3]
+[ext_resource path="res://Assets/BlueGem.png" type="Texture" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0, 0, 1 )
@@ -121,10 +122,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -355.141
-margin_top = -72.1189
-margin_right = -326.141
-margin_bottom = -15.1189
+margin_left = -403.876
+margin_top = -74.2378
+margin_right = -374.876
+margin_bottom = -17.2378
 texture = ExtResource( 2 )
 expand = true
 __meta__ = {
@@ -137,11 +138,27 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -303.565
-margin_top = -63.9117
-margin_right = -263.565
-margin_bottom = -23.9117
+margin_left = -358.657
+margin_top = -67.09
+margin_right = -318.657
+margin_bottom = -27.09
 texture = ExtResource( 3 )
 expand = true
+
+[node name="BlueGem" type="TextureRect" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -298.268
+margin_top = -68.1495
+margin_right = -258.268
+margin_bottom = -28.1495
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="StarMapBtn" to="." method="_on_StarMapBtn_pressed"]

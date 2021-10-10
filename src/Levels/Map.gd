@@ -46,6 +46,8 @@ func show_gems():
 		$GreenGem.show()
 	if PlayerVariables.has_red:
 		$RedGem.show()
+	if PlayerVariables.has_blue:
+		$BlueGem.show()
 
 func _on_EngageButton_pressed():
 	var pressed_destinations = []

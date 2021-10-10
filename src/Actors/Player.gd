@@ -97,6 +97,9 @@ func add_gem(var gem):
 	elif gem == "Red":
 		PlayerVariables.has_red = true
 		get_parent().get_node("CanvasLayer/UI/RedGem").show()
+	elif gem == "Blue":
+		PlayerVariables.has_blue = true
+		get_parent().get_node("CanvasLayer/UI/BlueGem").show()
 
 func activate_map():
 	if not map_is_active:
