@@ -2,7 +2,7 @@ extends Node2D
 
 onready var asteroid_prefab = preload("res://src/Actors/Asteroid.tscn")
 onready var arrow_prefab = preload("res://src/Misc/Arrow.tscn")
-onready var enemy_prefab = preload("res://src/Actors/Enemy1.tscn")
+onready var enemy_prefab = preload("res://src/Actors/Enemies/RedEnemy.tscn")
 onready var moon_prefab = preload("res://Assets/LargeMoon.png")
 onready var ice_prefab = preload("res://Assets/LargeIce.png")
 onready var green_gem_prefab = preload("res://src/Actors/GreenGem.tscn")
