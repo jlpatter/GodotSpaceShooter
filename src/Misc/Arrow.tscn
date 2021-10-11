@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://src/Misc/AsteroidArrow.gd" type="Script" id=1]
+[ext_resource path="res://src/Misc/Arrow.gd" type="Script" id=1]
 
-[node name="AsteroidArrow" type="Polygon2D"]
+[node name="Arrow" type="Polygon2D"]
 color = Color( 0.380392, 0.203922, 0, 1 )
 polygon = PoolVector2Array( -25, 0, 25, 0, 0, 25 )
 script = ExtResource( 1 )

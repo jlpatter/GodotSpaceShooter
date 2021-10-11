@@ -1,10 +1,15 @@
 extends Node2D
 
 onready var asteroid_prefab = preload("res://src/Actors/Asteroid.tscn")
-onready var asteroid_arrow_prefab = preload("res://src/Misc/AsteroidArrow.tscn")
+onready var arrow_prefab = preload("res://src/Misc/Arrow.tscn")
 onready var enemy_prefab = preload("res://src/Actors/Enemy1.tscn")
 onready var moon_prefab = preload("res://Assets/LargeMoon.png")
 onready var ice_prefab = preload("res://Assets/LargeIce.png")
+onready var green_gem_prefab = preload("res://src/Actors/GreenGem.tscn")
+onready var red_gem_prefab = preload("res://src/Actors/RedGem.tscn")
+onready var blue_gem_prefab = preload("res://src/Actors/BlueGem.tscn")
+onready var yellow_gem_prefab = preload("res://src/Actors/YellowGem.tscn")
+
 
 func _ready():
 	var random_parallax = GlobalVariables.rng.randi() % 3
@@ -20,16 +25,34 @@ func _ready():
 	
 	for i in asteroid_num:
 		var asteroid = asteroid_prefab.instance()
-		var asteroid_arrow = asteroid_arrow_prefab.instance()
+		var asteroid_arrow = arrow_prefab.instance()
 		add_child(asteroid)
 		add_child(asteroid_arrow)
-		asteroid_arrow.set_asteroid(asteroid)
+		asteroid_arrow.set_target(asteroid)
 		asteroid.position = Vector2(GlobalVariables.rng.randf() * 1000 - 100, GlobalVariables.rng.randf() * 1000 - 100)
 	
 	for i in enemy_num:
 		var enemy = enemy_prefab.instance()
 		add_child(enemy)
 		enemy.position = Vector2(GlobalVariables.rng.randf() * 1000 - 100, GlobalVariables.rng.randf() * 1000 - 100)
+	
+	if GlobalVariables.rng.randi() % 2 == 1:
+		add_gem(green_gem_prefab, Color.green)
+	if GlobalVariables.rng.randi() % 2 == 1:
+		add_gem(red_gem_prefab, Color.red)
+	if GlobalVariables.rng.randi() % 2 == 1:
+		add_gem(blue_gem_prefab, Color.blue)
+	if GlobalVariables.rng.randi() % 2 == 1:
+		add_gem(yellow_gem_prefab, Color.yellow)
+
+func add_gem(var gem_prefab, var arrow_color):
+	var gem = gem_prefab.instance()
+	var gem_arrow = arrow_prefab.instance()
+	add_child(gem)
+	add_child(gem_arrow)
+	gem.position = Vector2(GlobalVariables.rng.randf() * 1000 - 100, GlobalVariables.rng.randf() * 1000 - 100)
+	gem_arrow.set_target(gem)
+	gem_arrow.color = arrow_color
 
 func _process(delta):
 	if Input.is_action_just_pressed("quit"):
