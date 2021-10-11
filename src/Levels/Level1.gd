@@ -36,14 +36,15 @@ func _ready():
 		add_child(enemy)
 		enemy.position = Vector2(GlobalVariables.rng.randf() * 1000 - 100, GlobalVariables.rng.randf() * 1000 - 100)
 	
-	if GlobalVariables.rng.randi() % 2 == 1:
-		add_gem(green_gem_prefab, Color.green)
-	if GlobalVariables.rng.randi() % 2 == 1:
-		add_gem(red_gem_prefab, Color.red)
-	if GlobalVariables.rng.randi() % 2 == 1:
-		add_gem(blue_gem_prefab, Color.blue)
-	if GlobalVariables.rng.randi() % 2 == 1:
-		add_gem(yellow_gem_prefab, Color.yellow)
+	if GlobalVariables.rng.randi() % 10 == 0:
+		if MapVariables.current_color == "Green":
+			add_gem(green_gem_prefab, Color.green)
+		elif MapVariables.current_color == "Red":
+			add_gem(red_gem_prefab, Color.red)
+		elif MapVariables.current_color == "Blue":
+			add_gem(blue_gem_prefab, Color.blue)
+		elif MapVariables.current_color == "Yellow":
+			add_gem(yellow_gem_prefab, Color.yellow)
 
 func add_gem(var gem_prefab, var arrow_color):
 	var gem = gem_prefab.instance()

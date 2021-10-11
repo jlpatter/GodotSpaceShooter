@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Stars/GreenStarSelected.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Stars/GreenStar.png" type="Texture" id=2]
+[ext_resource path="res://src/Levels/DestinationMarker.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Stars/GreenStarVisited.png" type="Texture" id=4]
+
+[node name="GreenDestinationMarker" type="Control"]
+margin_right = 49.0
+margin_bottom = 91.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StarVisited" type="Sprite" parent="."]
+visible = false
+position = Vector2( 22.8349, 42.6104 )
+scale = Vector2( 4.11815, 4.49678 )
+texture = ExtResource( 4 )
+
+[node name="Button" type="TextureButton" parent="."]
+margin_right = 45.0
+margin_bottom = 86.0
+toggle_mode = true
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="toggled" from="Button" to="." method="_on_Button_toggled"]

@@ -2,13 +2,31 @@ extends Control
 
 const NUM_OF_STARS = 20
 
-onready var destination_marker_prefab = preload("res://src/Levels/DestinationMarker.tscn")
+onready var green_destination_marker_prefab = preload("res://src/Levels/GreenDestinationMarker.tscn")
+onready var red_destination_marker_prefab = preload("res://src/Levels/RedDestinationMarker.tscn")
+onready var blue_destination_marker_prefab = preload("res://src/Levels/BlueDestinationMarker.tscn")
+onready var yellow_destination_marker_prefab = preload("res://src/Levels/YellowDestinationMarker.tscn")
 
 func _ready():
 	if MapVariables.is_first_load:
 		MapVariables.is_first_load = false
 		for i in NUM_OF_STARS:
-			var dest_marker = destination_marker_prefab.instance()
+			var location = MapVariables.Location.new()
+			var dest_marker = null
+			
+			if i % 4 == 0:
+				dest_marker = green_destination_marker_prefab.instance()
+				location.color = "Green"
+			elif i % 4 == 1:
+				dest_marker = red_destination_marker_prefab.instance()
+				location.color = "Red"
+			elif i % 4 == 2:
+				dest_marker = blue_destination_marker_prefab.instance()
+				location.color = "Blue"
+			elif i % 4 == 3:
+				dest_marker = yellow_destination_marker_prefab.instance()
+				location.color = "Yellow"
+			
 			$Destinations.add_child(dest_marker)
 			dest_marker.id = i
 			var x_loc = GlobalVariables.rng.randf() * (rect_size.x - dest_marker.rect_size.x)
@@ -20,15 +38,25 @@ func _ready():
 				dest_marker.rect_position = Vector2(x_loc, y_loc)
 			if i == 0:
 				dest_marker.is_current = true
+				MapVariables.current_color = location.color
 				$CurrentPointer.position.x = dest_marker.rect_position.x + dest_marker.rect_size.x / 2.0
 				$CurrentPointer.position.y = dest_marker.rect_position.y - 15.0
-			var location = MapVariables.Location.new()
 			location.is_current = dest_marker.is_current
 			location.position = dest_marker.rect_position
 			MapVariables.locations[dest_marker.id] = location
 	else:
 		for i in NUM_OF_STARS:
-			var dest_marker = destination_marker_prefab.instance()
+			var dest_marker = null
+			
+			if MapVariables.locations[i].color == "Green":
+				dest_marker = green_destination_marker_prefab.instance()
+			elif MapVariables.locations[i].color == "Red":
+				dest_marker = red_destination_marker_prefab.instance()
+			elif MapVariables.locations[i].color == "Blue":
+				dest_marker = blue_destination_marker_prefab.instance()
+			elif MapVariables.locations[i].color == "Yellow":
+				dest_marker = yellow_destination_marker_prefab.instance()
+			
 			$Destinations.add_child(dest_marker)
 			dest_marker.id = i
 			dest_marker.is_current = MapVariables.locations[i].is_current
@@ -71,6 +99,7 @@ func _on_EngageButton_pressed():
 				MapVariables.locations[c.id].is_current = false
 				MapVariables.locations[c.id].is_visited = true
 		MapVariables.locations[pressed_destinations[0].id].is_current = true
+		MapVariables.current_color = MapVariables.locations[pressed_destinations[0].id].color
 		get_parent().get_parent().get_node("Player").decrease_fuel(20)
 		get_parent().get_parent().get_node("Player").activate_map()
 		get_parent().get_parent().get_node("Player").warp_out()
