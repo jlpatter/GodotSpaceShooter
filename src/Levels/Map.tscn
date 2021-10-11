@@ -36,6 +36,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="UpperRect" type="ReferenceRect" parent="."]
+anchor_right = 1.0
+margin_bottom = 44.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Destinations" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -48,9 +55,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 23.0
+margin_left = -133.801
 margin_top = -84.0
-margin_right = 99.0
+margin_right = -57.801
 margin_bottom = -32.0
 text = "Engage!"
 __meta__ = {
@@ -62,11 +69,21 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -99.881
+margin_left = -231.254
 margin_top = -84.0
-margin_right = -23.881
+margin_right = -155.254
 margin_bottom = -32.0
 text = "Go Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SectorButton" type="Button" parent="."]
+margin_left = 479.059
+margin_top = 516.0
+margin_right = 628.059
+margin_bottom = 568.0
+text = "Engage to New Sector"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -151,3 +168,4 @@ expand = true
 
 [connection signal="pressed" from="EngageButton" to="." method="_on_EngageButton_pressed"]
 [connection signal="pressed" from="GoBackButton" to="." method="_on_GoBackButton_pressed"]
+[connection signal="pressed" from="SectorButton" to="." method="_on_SectorButton_pressed"]

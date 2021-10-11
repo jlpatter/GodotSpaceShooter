@@ -32,7 +32,7 @@ func _ready():
 			var x_loc = GlobalVariables.rng.randf() * (rect_size.x - dest_marker.rect_size.x)
 			var y_loc = GlobalVariables.rng.randf() * (rect_size.y - dest_marker.rect_size.y)
 			dest_marker.rect_position = Vector2(x_loc, y_loc)
-			while dest_marker.inside_of($UIRect) or dest_marker.inside_of_any($Destinations.get_children()):
+			while dest_marker.inside_of($UIRect) or dest_marker.inside_of($UpperRect) or dest_marker.inside_of_any($Destinations.get_children()):
 				x_loc = GlobalVariables.rng.randf() * (rect_size.x - dest_marker.rect_size.x)
 				y_loc = GlobalVariables.rng.randf() * (rect_size.y - dest_marker.rect_size.y)
 				dest_marker.rect_position = Vector2(x_loc, y_loc)
@@ -104,6 +104,17 @@ func _on_EngageButton_pressed():
 		get_parent().get_parent().get_node("Player").activate_map()
 		get_parent().get_parent().get_node("Player").warp_out()
 
+func _on_SectorButton_pressed():
+	if PlayerVariables.fuel < 20:
+		$OutputLabel.text = "You do not have enough fuel to jump"
+		$OutputLabel.show()
+	else:
+		MapVariables.is_first_load = true
+		MapVariables.locations = {}
+		MapVariables.current_color = ""
+		get_parent().get_parent().get_node("Player").decrease_fuel(20)
+		get_parent().get_parent().get_node("Player").activate_map()
+		get_parent().get_parent().get_node("Player").warp_out()
 
 func _on_GoBackButton_pressed():
 	get_parent().get_parent().get_node("Player").activate_map()
