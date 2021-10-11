@@ -5,8 +5,8 @@ const NUM_OF_STARS = 20
 onready var destination_marker_prefab = preload("res://src/Levels/DestinationMarker.tscn")
 
 func _ready():
-	if LevelVariables.is_first_load:
-		LevelVariables.is_first_load = false
+	if MapVariables.is_first_load:
+		MapVariables.is_first_load = false
 		for i in NUM_OF_STARS:
 			var dest_marker = destination_marker_prefab.instance()
 			$Destinations.add_child(dest_marker)
@@ -22,18 +22,18 @@ func _ready():
 				dest_marker.is_current = true
 				$CurrentPointer.position.x = dest_marker.rect_position.x + dest_marker.rect_size.x / 2.0
 				$CurrentPointer.position.y = dest_marker.rect_position.y - 15.0
-			var location = LevelVariables.Location.new()
+			var location = MapVariables.Location.new()
 			location.is_current = dest_marker.is_current
 			location.position = dest_marker.rect_position
-			LevelVariables.locations[dest_marker.id] = location
+			MapVariables.locations[dest_marker.id] = location
 	else:
 		for i in NUM_OF_STARS:
 			var dest_marker = destination_marker_prefab.instance()
 			$Destinations.add_child(dest_marker)
 			dest_marker.id = i
-			dest_marker.is_current = LevelVariables.locations[i].is_current
-			dest_marker.rect_position = LevelVariables.locations[i].position
-			if LevelVariables.locations[i].is_visited:
+			dest_marker.is_current = MapVariables.locations[i].is_current
+			dest_marker.rect_position = MapVariables.locations[i].position
+			if MapVariables.locations[i].is_visited:
 				dest_marker.get_node("Button").hide()
 				dest_marker.get_node("StarVisited").show()
 			if dest_marker.is_current:
@@ -68,9 +68,9 @@ func _on_EngageButton_pressed():
 	else:
 		for c in $Destinations.get_children():
 			if c.is_current:
-				LevelVariables.locations[c.id].is_current = false
-				LevelVariables.locations[c.id].is_visited = true
-		LevelVariables.locations[pressed_destinations[0].id].is_current = true
+				MapVariables.locations[c.id].is_current = false
+				MapVariables.locations[c.id].is_visited = true
+		MapVariables.locations[pressed_destinations[0].id].is_current = true
 		get_parent().get_parent().get_node("Player").decrease_fuel(20)
 		get_parent().get_parent().get_node("Player").activate_map()
 		get_parent().get_parent().get_node("Player").warp_out()

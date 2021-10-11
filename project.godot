@@ -28,7 +28,7 @@ config/icon="res://Assets/GippiesProductionLogo.png"
 
 GlobalVariables="*res://src/GlobalVariables.gd"
 PlayerVariables="*res://src/PlayerVariables.gd"
-LevelVariables="*res://src/LevelVariables.gd"
+MapVariables="*res://src/MapVariables.gd"
 
 [input]
 
