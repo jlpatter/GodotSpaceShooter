@@ -55,10 +55,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -133.801
-margin_top = -84.0
-margin_right = -57.801
-margin_bottom = -32.0
+margin_left = 35.2192
+margin_top = -83.9999
+margin_right = 111.219
+margin_bottom = -31.9999
 text = "Engage!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -79,10 +79,14 @@ __meta__ = {
 }
 
 [node name="SectorButton" type="Button" parent="."]
-margin_left = 479.059
-margin_top = 516.0
-margin_right = 628.059
-margin_bottom = 568.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -132.167
+margin_top = -84.0
+margin_right = 16.833
+margin_bottom = -32.0
 text = "Engage to New Sector"
 __meta__ = {
 "_edit_use_anchors_": false
