@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/LargeSun.png" type="Texture" id=2]
-[ext_resource path="res://Assets/StarsBackground.png" type="Texture" id=3]
-[ext_resource path="res://Assets/SpaceDust.png" type="Texture" id=4]
+[ext_resource path="res://Assets/StarsBackground2.png" type="Texture" id=3]
 [ext_resource path="res://src/Misc/UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Levels/Level1.gd" type="Script" id=6]
 
@@ -14,11 +13,9 @@ script = ExtResource( 6 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.01, 0.01 )
-motion_mirroring = Vector2( 960, 540 )
+motion_mirroring = Vector2( 4000, 2000 )
 
-[node name="StarsBackground" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 514.093, 278.495 )
-scale = Vector2( 0.25, 0.25 )
+[node name="StarsBackground2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 3 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -28,11 +25,10 @@ motion_scale = Vector2( 0.05, 0.05 )
 texture = ExtResource( 2 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 1000, 1000 )
+motion_mirroring = Vector2( 4000, 2000 )
 
-[node name="SpaceDust" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 503.156, 503.179 )
-texture = ExtResource( 4 )
+[node name="StarsBackground2" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
