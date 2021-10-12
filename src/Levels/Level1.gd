@@ -2,7 +2,8 @@ extends Node2D
 
 onready var asteroid_prefab = preload("res://src/Actors/Asteroid.tscn")
 onready var arrow_prefab = preload("res://src/Misc/Arrow.tscn")
-onready var enemy_prefab = preload("res://src/Actors/Enemies/RedEnemy.tscn")
+onready var red_enemy_prefab = preload("res://src/Actors/Enemies/RedEnemy.tscn")
+onready var green_enemy_prefab = preload("res://src/Actors/Enemies/GreenEnemy.tscn")
 onready var moon_prefab = preload("res://Assets/LargeMoon.png")
 onready var ice_prefab = preload("res://Assets/LargeIce.png")
 onready var green_gem_prefab = preload("res://src/Actors/GreenGem.tscn")
@@ -31,13 +32,17 @@ func _ready():
 		asteroid_arrow.set_target(asteroid)
 		asteroid.position = Vector2(GlobalVariables.rng.randf() * 1000 - 100, GlobalVariables.rng.randf() * 1000 - 100)
 	
-	for i in enemy_num:
-		var enemy = enemy_prefab.instance()
-		add_child(enemy)
-		enemy.position = Vector2(GlobalVariables.rng.randf() * 1000 - 100, GlobalVariables.rng.randf() * 1000 - 100)
-	
 	if MapVariables.current_color == "":
 		MapVariables.current_color = "Green"
+	
+	for i in enemy_num:
+		var enemy = null
+		if MapVariables.current_color == "Green":
+			enemy = green_enemy_prefab.instance()
+		elif MapVariables.current_color == "Red":
+			enemy = red_enemy_prefab.instance()
+		add_child(enemy)
+		enemy.position = Vector2(GlobalVariables.rng.randf() * 1000 - 100, GlobalVariables.rng.randf() * 1000 - 100)
 	
 	if GlobalVariables.rng.randi() % 10 == 0:
 		if MapVariables.current_color == "Green":
