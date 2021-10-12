@@ -6,6 +6,7 @@ const DISTANCE_TO_DETECT_PLAYER = 500.0
 var is_following_player = false
 var is_exploding = false
 onready var bullet_prefab = preload("res://src/Actors/RedBullet.tscn")
+onready var health_pack_prefab = preload("res://src/Actors/HealthPack.tscn")
 
 func _ready():
 	$BulletTimer.wait_time = GlobalVariables.rng.randf() * 2 + 1
@@ -66,4 +67,8 @@ func _on_Area2D_area_entered(area):
 		explode()
 
 func _on_GenericExplosion_animation_finished():
+	if GlobalVariables.rng.randi() % 4 == 0:
+		var health_pack = health_pack_prefab.instance()
+		get_parent().add_child(health_pack)
+		health_pack.position = global_position
 	queue_free()

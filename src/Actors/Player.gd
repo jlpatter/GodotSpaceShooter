@@ -4,7 +4,7 @@ const SPEED = 10.0
 const WARP_IN_SPEED = 1000.0
 const DECEL_SPEED = 5.0
 const ROTATION_SPEED = 2.0
-const GOD_MODE = true
+const GOD_MODE = false
 
 var velocity = Vector2.ZERO
 var map = null
@@ -117,6 +117,14 @@ func activate_map():
 		map_is_active = false
 		map.hide()
 
+func increase_health(var amount):
+	if not is_exploding:
+		if PlayerVariables.health + amount > 100:
+			PlayerVariables.health = 100
+		else:
+			PlayerVariables.health += amount
+		get_parent().get_node("CanvasLayer/UI/HealthBar").value = PlayerVariables.health
+
 func decrease_health(var amount):
 	if not GOD_MODE:
 		PlayerVariables.health -= amount
@@ -125,12 +133,17 @@ func decrease_health(var amount):
 			explode()
 
 func increase_fuel(var amount):
-	if PlayerVariables.fuel + amount <= 100:
+	if PlayerVariables.fuel + amount > 100:
+		PlayerVariables.fuel = 100
+	else:
 		PlayerVariables.fuel += amount
-		get_parent().get_node("CanvasLayer/UI/FuelBar").value = PlayerVariables.fuel
+	get_parent().get_node("CanvasLayer/UI/FuelBar").value = PlayerVariables.fuel
 
 func decrease_fuel(var amount):
-	PlayerVariables.fuel -= amount
+	if PlayerVariables.fuel - amount < 0:
+		PlayerVariables.fuel = 0
+	else:
+		PlayerVariables.fuel -= amount
 	get_parent().get_node("CanvasLayer/UI/FuelBar").value = PlayerVariables.fuel
 
 func explode():
