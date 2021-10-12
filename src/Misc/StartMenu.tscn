@@ -1,0 +1,180 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/PlayerShip.png" type="Texture" id=1]
+[ext_resource path="res://Assets/StarsBackground.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fire.png" type="Texture" id=3]
+[ext_resource path="res://Assets/GreenGem2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/RedGem.png" type="Texture" id=5]
+[ext_resource path="res://Assets/BlueGem.png" type="Texture" id=6]
+[ext_resource path="res://Assets/YellowGem.png" type="Texture" id=7]
+[ext_resource path="res://src/Misc/StartMenu.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Fonts/LiberationSerif-Regular.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+use_filter = true
+font_data = ExtResource( 9 )
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StarsRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = -288.0
+margin_right = 86.0
+margin_bottom = -253.0
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = -240.0
+margin_right = 86.0
+margin_bottom = -205.0
+text = "Tutorial"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = -192.0
+margin_right = 87.0
+margin_bottom = -157.0
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = -144.0
+margin_right = 87.0
+margin_bottom = -109.0
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShipRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 3.43811
+margin_top = -187.027
+margin_right = 103.438
+margin_bottom = -87.0275
+rect_rotation = 50.0
+rect_scale = Vector2( 2.7343, 2.67115 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FireRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -110.969
+margin_top = 49.355
+margin_right = -54.9687
+margin_bottom = 132.355
+rect_rotation = 50.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GreenGem" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.9388
+margin_top = -207.242
+margin_right = 16.0612
+margin_bottom = -107.242
+texture = ExtResource( 4 )
+
+[node name="RedGem" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -257.51
+margin_top = -12.2119
+margin_right = -182.51
+margin_bottom = 62.7881
+texture = ExtResource( 5 )
+
+[node name="BlueGem" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.5877
+margin_top = 154.277
+margin_right = 24.4123
+margin_bottom = 229.277
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YellowGem" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 125.415
+margin_top = -14.5903
+margin_right = 200.415
+margin_bottom = 60.4097
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 46.669
+margin_top = 95.4594
+margin_right = 413.669
+margin_bottom = 167.459
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Space Shooter"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
