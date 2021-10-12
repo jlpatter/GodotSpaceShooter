@@ -20,6 +20,14 @@ func _physics_process(delta):
 		position += Vector2(0.0, -1.0).rotated(rotation) * SPEED * delta
 	else:
 		is_following_player = false
+	
+	if is_following_player and not is_exploding:
+		$Fire.show()
+		if not $JetSound.playing:
+			$JetSound.play()
+	else:
+		$Fire.hide()
+		$JetSound.stop()
 
 func explode():
 	is_exploding = true
