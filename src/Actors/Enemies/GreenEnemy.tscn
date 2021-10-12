@@ -28,7 +28,7 @@ texture = ExtResource( 4 )
 stream = ExtResource( 5 )
 
 [node name="BulletSpawnLocation" type="Node2D" parent="."]
-position = Vector2( 0, -34.526 )
+position = Vector2( 0.25, -36.312 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
