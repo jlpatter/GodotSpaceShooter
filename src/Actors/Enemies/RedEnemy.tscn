@@ -17,6 +17,7 @@ position = Vector2( 0.396851, 9.12756 )
 texture = ExtResource( 1 )
 
 [node name="Fire" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0.615921, 55.8399 )
 texture = ExtResource( 4 )
 
