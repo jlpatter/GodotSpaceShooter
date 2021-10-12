@@ -4,6 +4,7 @@ onready var asteroid_prefab = preload("res://src/Actors/Asteroid.tscn")
 onready var arrow_prefab = preload("res://src/Misc/Arrow.tscn")
 onready var red_enemy_prefab = preload("res://src/Actors/Enemies/RedEnemy.tscn")
 onready var green_enemy_prefab = preload("res://src/Actors/Enemies/GreenEnemy.tscn")
+onready var blue_enemy_prefab = preload("res://src/Actors/Enemies/BlueEnemy.tscn")
 onready var moon_prefab = preload("res://Assets/LargeMoon.png")
 onready var ice_prefab = preload("res://Assets/LargeIce.png")
 onready var green_gem_prefab = preload("res://src/Actors/GreenGem.tscn")
@@ -41,6 +42,8 @@ func _ready():
 			enemy = green_enemy_prefab.instance()
 		elif MapVariables.current_color == "Red":
 			enemy = red_enemy_prefab.instance()
+		elif MapVariables.current_color == "Blue":
+			enemy = blue_enemy_prefab.instance()
 		add_child(enemy)
 		enemy.position = Vector2(GlobalVariables.rng.randf() * 1000 - 100, GlobalVariables.rng.randf() * 1000 - 100)
 	

@@ -45,6 +45,14 @@ func _on_BulletTimer_timeout():
 		bullet.position = $BulletSpawnLocation.global_position
 		bullet.rotation = rotation
 		bullet.set_speed(SPEED)
+		
+		var bullet_spawn_location_2 = get_node_or_null("BulletSpawnLocation2")
+		if bullet_spawn_location_2 != null:
+			var bullet_2 = bullet_prefab.instance()
+			get_parent().add_child(bullet_2)
+			bullet_2.position = bullet_spawn_location_2.global_position
+			bullet_2.rotation = rotation
+			bullet_2.set_speed(SPEED)
 
 
 func _on_Area2D_body_entered(body):
