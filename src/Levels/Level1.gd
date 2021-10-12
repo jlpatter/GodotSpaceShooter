@@ -50,7 +50,7 @@ func _ready():
 		add_child(enemy)
 		enemy.position = Vector2(GlobalVariables.rng.randf() * 1000 - 100, GlobalVariables.rng.randf() * 1000 - 100)
 	
-	if GlobalVariables.rng.randi() % 10 == 0:
+	if GlobalVariables.rng.randi() % 4 == 0:
 		if MapVariables.current_color == "Green":
 			add_gem(green_gem_prefab, Color.green)
 		elif MapVariables.current_color == "Red":
