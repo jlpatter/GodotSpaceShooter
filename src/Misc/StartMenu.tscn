@@ -8,7 +8,7 @@
 [ext_resource path="res://Assets/BlueGem.png" type="Texture" id=6]
 [ext_resource path="res://Assets/YellowGem.png" type="Texture" id=7]
 [ext_resource path="res://src/Misc/StartMenu.gd" type="Script" id=8]
-[ext_resource path="res://Assets/Fonts/LiberationSerif-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Assets/Fonts/Ubuntu-R.ttf" type="DynamicFontData" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -163,10 +163,10 @@ margin_bottom = 60.4097
 texture = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 46.669
-margin_top = 95.4594
-margin_right = 413.669
-margin_bottom = 167.459
+margin_left = 31.55
+margin_top = 62.7015
+margin_right = 451.55
+margin_bottom = 135.701
 custom_styles/normal = SubResource( 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Space Shooter"
