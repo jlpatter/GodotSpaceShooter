@@ -163,6 +163,7 @@ func explode():
 
 
 func _on_GenericExplosion_animation_finished():
+	get_parent().get_node("CanvasLayer/GameOverLabel").show()
 	queue_free()
 
 
