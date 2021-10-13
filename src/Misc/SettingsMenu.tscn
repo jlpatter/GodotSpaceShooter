@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Misc/SettingsMenu.gd" type="Script" id=1]
+
+[node name="SettingsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -113.5
+margin_top = -167.0
+margin_right = 113.5
+margin_bottom = 167.0
+color = Color( 0.27451, 0.27451, 0.27451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicCheckBox" type="CheckBox" parent="ColorRect"]
+margin_left = 73.5
+margin_top = 67.0
+margin_right = 139.5
+margin_bottom = 91.0
+pressed = true
+text = "Music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="ColorRect"]
+margin_left = 73.5
+margin_top = 99.0
+margin_right = 167.5
+margin_bottom = 123.0
+pressed = true
+text = "Fullscreen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 89.5
+margin_top = 291.0
+margin_right = -95.5
+margin_bottom = -23.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="toggled" from="ColorRect/MusicCheckBox" to="." method="_on_MusicCheckBox_toggled"]
+[connection signal="toggled" from="ColorRect/FullscreenCheckBox" to="." method="_on_FullscreenCheckBox_toggled"]
+[connection signal="pressed" from="ColorRect/BackButton" to="." method="_on_BackButton_pressed"]

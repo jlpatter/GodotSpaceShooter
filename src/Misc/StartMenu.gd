@@ -9,3 +9,7 @@ func _on_PlayButton_pressed():
 
 func _on_QuitButton_pressed():
 	get_tree().quit()
+
+
+func _on_SettingsButton_pressed():
+	$SettingsMenu.show()
