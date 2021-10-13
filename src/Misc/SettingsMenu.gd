@@ -13,11 +13,9 @@ func _on_FullscreenCheckBox_toggled(button_pressed):
 	if button_pressed:
 		OS.window_fullscreen = true
 		OS.window_borderless = true
-		# OS.window_resizable = false
 	else:
 		OS.window_fullscreen = false
 		OS.window_borderless = false
-		OS.window_resizable = true
 
 
 func _on_BackButton_pressed():
