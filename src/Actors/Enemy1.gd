@@ -46,6 +46,7 @@ func _on_BulletTimer_timeout():
 		bullet.position = $BulletSpawnLocation.global_position
 		bullet.rotation = rotation
 		bullet.set_speed(SPEED)
+		bullet.pause_mode = Node.PAUSE_MODE_STOP
 		
 		var bullet_spawn_location_2 = get_node_or_null("BulletSpawnLocation2")
 		if bullet_spawn_location_2 != null:
@@ -54,6 +55,7 @@ func _on_BulletTimer_timeout():
 			bullet_2.position = bullet_spawn_location_2.global_position
 			bullet_2.rotation = rotation
 			bullet_2.set_speed(SPEED)
+			bullet_2.pause_mode = Node.PAUSE_MODE_STOP
 
 
 func _on_Area2D_body_entered(body):

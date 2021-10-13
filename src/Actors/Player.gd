@@ -58,18 +58,21 @@ func _physics_process(delta):
 			bullet.set_position($BulletSpawnLocation1.global_position)
 			bullet.set_rotation(rotation)
 			bullet.set_speed(velocity.length())
+			bullet.pause_mode = Node.PAUSE_MODE_STOP
 			
 			var bullet2 = bullet_prefab.instance()
 			get_parent().add_child(bullet2)
 			bullet2.set_position($BulletSpawnLocation2.global_position)
 			bullet2.set_rotation(rotation)
 			bullet2.set_speed(velocity.length())
+			bullet2.pause_mode = Node.PAUSE_MODE_STOP
 			
 			var bullet3 = bullet_prefab.instance()
 			get_parent().add_child(bullet3)
 			bullet3.set_position($BulletSpawnLocation3.global_position)
 			bullet3.set_rotation(rotation)
 			bullet3.set_speed(velocity.length())
+			bullet3.pause_mode = Node.PAUSE_MODE_STOP
 	
 	rotation += rotation_dir * ROTATION_SPEED * delta
 	move_and_slide(velocity)

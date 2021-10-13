@@ -33,6 +33,7 @@ func _ready():
 		add_child(asteroid_arrow)
 		asteroid_arrow.set_target(asteroid)
 		asteroid.position = Vector2(GlobalVariables.rng.randf() * 1000 - 100, GlobalVariables.rng.randf() * 1000 - 100)
+		asteroid.pause_mode = Node.PAUSE_MODE_STOP
 	
 	if MapVariables.current_color == "":
 		MapVariables.current_color = "Green"
@@ -49,6 +50,7 @@ func _ready():
 			enemy = yellow_enemy_prefab.instance()
 		add_child(enemy)
 		enemy.position = Vector2(GlobalVariables.rng.randf() * 1000 - 100, GlobalVariables.rng.randf() * 1000 - 100)
+		enemy.pause_mode = Node.PAUSE_MODE_STOP
 	
 	if GlobalVariables.rng.randi() % 4 == 0:
 		if MapVariables.current_color == "Green":
@@ -71,4 +73,9 @@ func add_gem(var gem_prefab, var arrow_color):
 
 func _process(delta):
 	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
+		if not get_node("CanvasLayer/PauseMenu").visible:
+			get_node("CanvasLayer/PauseMenu").show()
+			get_tree().paused = true
+		else:
+			get_node("CanvasLayer/PauseMenu").hide()
+			get_tree().paused = false
