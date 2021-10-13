@@ -53,10 +53,22 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 47.0
-margin_top = 134.0
+margin_top = 142.0
 margin_right = -48.0
-margin_bottom = -74.0
+margin_bottom = -66.0
 text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="Button" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 47.0
+margin_top = 62.0
+margin_right = -46.0
+margin_bottom = -146.0
+text = "Restart"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -67,3 +79,4 @@ visible = false
 [connection signal="pressed" from="ColorRect/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="ColorRect/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="ColorRect/SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="ColorRect/RestartButton" to="." method="_on_RestartButton_pressed"]
