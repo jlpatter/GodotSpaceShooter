@@ -29,6 +29,13 @@ config/icon="res://Assets/GippiesProductionLogo.png"
 GlobalVariables="*res://src/GlobalVariables.gd"
 PlayerVariables="*res://src/PlayerVariables.gd"
 MapVariables="*res://src/MapVariables.gd"
+SoundtrackScene="*res://src/SoundtrackScene.tscn"
+
+[display]
+
+window/size/resizable=false
+window/size/borderless=true
+window/size/fullscreen=true
 
 [input]
 
