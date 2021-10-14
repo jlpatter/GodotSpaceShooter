@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/EnemyShips/GreenEnemy.png" type="Texture" id=1]
+[ext_resource path="res://src/Misc/GenericExplosion.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Levels/BossLevel/Enemy2.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Fire.png" type="Texture" id=4]
+[ext_resource path="res://Assets/rocket.wav" type="AudioStream" id=5]
+
+[node name="GreenEnemy" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="GFX" type="Sprite" parent="."]
+position = Vector2( 0.396851, 9.12756 )
+texture = ExtResource( 1 )
+
+[node name="Fire" type="Node2D" parent="."]
+visible = false
+position = Vector2( -13.9005, 62.681 )
+
+[node name="Fire1" type="Sprite" parent="Fire"]
+texture = ExtResource( 4 )
+
+[node name="Fire2" type="Sprite" parent="Fire"]
+position = Vector2( 28.8659, 0.166855 )
+texture = ExtResource( 4 )
+
+[node name="JetSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="BulletSpawnLocation" type="Node2D" parent="."]
+position = Vector2( 0.25, -36.312 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 0.587364, -35.1982, -30.9622, 53.101, -11.1197, 54.6884, -0.206337, 46.553, 11.5007, 54.6884, 30.9464, 52.5057 )
+
+[node name="BulletTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="GenericExplosion" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( -0.385208, 0.944603 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="BulletTimer" to="." method="_on_BulletTimer_timeout"]
+[connection signal="animation_finished" from="GenericExplosion" to="." method="_on_GenericExplosion_animation_finished"]

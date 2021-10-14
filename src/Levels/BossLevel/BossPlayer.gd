@@ -2,6 +2,8 @@ extends Node2D
 
 const SPEED = 200.0
 
+var health = 100.0
+
 onready var green_bullet_prefab = preload("res://src/Actors/GreenBullet.tscn")
 
 func _physics_process(delta):
@@ -27,3 +29,9 @@ func _physics_process(delta):
 		get_tree().quit()
 	
 	position += velocity * SPEED * delta
+
+func increase_health(var amount):
+	if health + amount <= 100:
+		health += amount
+	else:
+		health = 100
