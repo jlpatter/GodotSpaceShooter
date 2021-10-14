@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BlackPyramid.png-60a1e11042e6506106860f2df0d1ecf3.stex"
+path="res://.import/BossBlueSection.png-24835c4f68609247ef2aaf768bc2e859.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/BossLevel/BlackPyramid.png"
-dest_files=[ "res://.import/BlackPyramid.png-60a1e11042e6506106860f2df0d1ecf3.stex" ]
+source_file="res://Assets/BossLevel/BossBlueSection.png"
+dest_files=[ "res://.import/BossBlueSection.png-24835c4f68609247ef2aaf768bc2e859.stex" ]
 
 [params]
 

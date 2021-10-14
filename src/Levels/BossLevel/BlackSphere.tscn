@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/BossLevel/BlackCube.png" type="Texture" id=1]
+[ext_resource path="res://Assets/BossLevel/BlackSphere.png" type="Texture" id=1]
 [ext_resource path="res://src/Levels/BossLevel/BlackObject.gd" type="Script" id=2]
 
-[node name="BlackCube" type="Node2D"]
+[node name="BlackSphere" type="Node2D"]
 z_index = -1
 script = ExtResource( 2 )
 
-[node name="BlackCube" type="Sprite" parent="."]
+[node name="BlackSphere" type="Sprite" parent="."]
 texture = ExtResource( 1 )
