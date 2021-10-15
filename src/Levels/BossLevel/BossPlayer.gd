@@ -25,9 +25,6 @@ func _physics_process(delta):
 		get_parent().add_child(bullet3)
 		bullet3.position = $BulletSpawn3.global_position
 	
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
-	
 	position += velocity * SPEED * delta
 
 func increase_health(var amount):
@@ -35,14 +32,14 @@ func increase_health(var amount):
 		PlayerVariables.health += amount
 	else:
 		PlayerVariables.health = 100
-	get_parent().get_node("CanvasLayer/BossUI/HealthBar").value = PlayerVariables.health
+	get_parent().get_node("CanvasLayer2/BossUI/HealthBar").value = PlayerVariables.health
 
 func decrease_health(var amount):
 	if PlayerVariables.health - amount >= 0:
 		PlayerVariables.health -= amount
 	else:
 		PlayerVariables.health = 0
-	get_parent().get_node("CanvasLayer/BossUI/HealthBar").value = PlayerVariables.health
+	get_parent().get_node("CanvasLayer2/BossUI/HealthBar").value = PlayerVariables.health
 	if PlayerVariables.health <= 0 and not is_exploding:
 			explode()
 
@@ -57,5 +54,5 @@ func explode():
 
 
 func _on_GenericExplosion_animation_finished():
-	get_parent().get_node("CanvasLayer/GameOverLabel").show()
+	get_parent().get_node("CanvasLayer2/GameOverLabel").show()
 	queue_free()

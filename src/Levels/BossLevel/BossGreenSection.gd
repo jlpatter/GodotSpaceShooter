@@ -18,4 +18,5 @@ func _on_SpawnTimer_timeout():
 	elif color_picker == 3:
 		enemy = yellow_enemy_prefab.instance()
 	get_parent().add_child(enemy)
+	enemy.pause_mode = Node.PAUSE_MODE_STOP
 	enemy.position = position

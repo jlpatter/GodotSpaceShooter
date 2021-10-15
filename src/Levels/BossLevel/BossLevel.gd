@@ -13,18 +13,30 @@ func _ready():
 	$Player.position = Vector2(get_viewport().size.x / 2.0, get_viewport().size.y - get_node("Player/PlayerShip").texture.get_height())
 
 func _process(delta):
-	timer -= delta
-	if timer < 0.0:
-		var black_object = null
-		var object_picker = GlobalVariables.rng.randi() % 3
-		if object_picker == 0:
-			black_object = black_cube_prefab.instance()
-		elif object_picker == 1:
-			black_object = black_pyramid_prefab.instance()
-		elif object_picker == 2:
-			black_object = black_sphere_prefab.instance()
-		
-		add_child(black_object)
-		black_object.position = Vector2(GlobalVariables.rng.randf() * get_viewport().size.x, 0.0)
-		
-		timer = GlobalVariables.rng.randf() * 0.5
+	if not get_tree().paused:
+		timer -= delta
+	
+	if Input.is_action_just_pressed("quit"):
+		if get_node("CanvasLayer2/PauseMenu").visible:
+			get_node("CanvasLayer2/PauseMenu").hide()
+			get_tree().paused = false
+		else:
+			get_node("CanvasLayer2/PauseMenu").show()
+			get_tree().paused = true
+	
+	if not get_tree().paused:
+		if timer < 0.0:
+			var black_object = null
+			var object_picker = GlobalVariables.rng.randi() % 3
+			if object_picker == 0:
+				black_object = black_cube_prefab.instance()
+			elif object_picker == 1:
+				black_object = black_pyramid_prefab.instance()
+			elif object_picker == 2:
+				black_object = black_sphere_prefab.instance()
+			
+			add_child(black_object)
+			black_object.pause_mode = Node.PAUSE_MODE_STOP
+			black_object.position = Vector2(GlobalVariables.rng.randf() * get_viewport().size.x, 0.0)
+			
+			timer = GlobalVariables.rng.randf() * 0.5

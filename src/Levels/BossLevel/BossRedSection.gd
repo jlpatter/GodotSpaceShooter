@@ -6,4 +6,5 @@ onready var red_missile_prefab = preload("res://src/Levels/BossLevel/RedMissile.
 func _on_MissileTimer_timeout():
 	var red_missile = red_missile_prefab.instance()
 	get_parent().add_child(red_missile)
+	red_missile.pause_mode = Node.PAUSE_MODE_STOP
 	red_missile.position = position

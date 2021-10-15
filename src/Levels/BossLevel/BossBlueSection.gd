@@ -12,5 +12,6 @@ func _on_Timer_timeout():
 	for i in range(1, 9):
 		var bullet = bullet_prefab.instance()
 		get_parent().add_child(bullet)
+		bullet.pause_mode = Node.PAUSE_MODE_STOP
 		bullet.position = get_node("Turret" + str(i)).global_position
 		bullet.rotation_degrees = rotation_degrees + 180
