@@ -8,6 +8,7 @@ onready var black_sphere_prefab = preload("res://src/Levels/BossLevel/BlackSpher
 
 func _ready():
 	$BossGreenSection.position = Vector2(get_viewport().size.x * (5.0 / 6.0), get_node("BossGreenSection/BossGreenSection").texture.get_height())
+	$BossRedSection.position = Vector2(get_viewport().size.x * (4.0 / 6.0), get_node("BossRedSection/BossRedSection").texture.get_height())
 	$Player.position = Vector2(get_viewport().size.x / 2.0, get_viewport().size.y - get_node("Player/PlayerShip").texture.get_height())
 
 func _process(delta):

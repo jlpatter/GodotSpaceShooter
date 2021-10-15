@@ -1,36 +1,9 @@
-extends Node2D
-
-var health = 100
-var is_exploding = false
+extends "res://src/Levels/BossLevel/BossSection.gd"
 
 onready var green_enemy_prefab = preload("res://src/Levels/BossLevel/GreenEnemy2.tscn")
 onready var red_enemy_prefab = preload("res://src/Levels/BossLevel/RedEnemy2.tscn")
 onready var blue_enemy_prefab = preload("res://src/Levels/BossLevel/BlueEnemy2.tscn")
 onready var yellow_enemy_prefab = preload("res://src/Levels/BossLevel/YellowEnemy2.tscn")
-
-func decrease_health(var amount):
-	health -= amount
-	$HealthBar.show()
-	$HealthBar.value = health
-	if health <= 0.0:
-		explode()
-
-func explode():
-	if not is_exploding:
-		is_exploding = true
-		$BossGreenSection.hide()
-		$GenericExplosion.show()
-		$GenericExplosion.play()
-		$GenericExplosion.play_audio()
-
-func _on_Area2D_area_entered(area):
-	if "GreenBullet" in area.get_parent().name:
-		area.get_parent().queue_free()
-		decrease_health(2)
-
-
-func _on_GenericExplosion_animation_finished():
-	queue_free()
 
 
 func _on_SpawnTimer_timeout():
