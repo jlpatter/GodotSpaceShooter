@@ -3,6 +3,7 @@ extends Node2D
 const SPEED = 200.0
 
 var health = 100.0
+var is_exploding = false
 
 onready var green_bullet_prefab = preload("res://src/Actors/GreenBullet.tscn")
 
@@ -35,3 +36,26 @@ func increase_health(var amount):
 		health += amount
 	else:
 		health = 100
+	get_parent().get_node("CanvasLayer/BossUI/HealthBar").value = health
+
+func decrease_health(var amount):
+	if health - amount >= 0:
+		health -= amount
+	else:
+		health = 0
+	get_parent().get_node("CanvasLayer/BossUI/HealthBar").value = health
+	if PlayerVariables.health <= 0 and not is_exploding:
+			explode()
+
+func explode():
+	is_exploding = true
+	$GenericExplosion.show()
+	$GenericExplosion.play()
+	$GenericExplosion.play_audio()
+	$PlayerShip.hide()
+	$RGBYFire.hide()
+	$FireParticles.hide()
+
+
+func _on_GenericExplosion_animation_finished():
+	queue_free()

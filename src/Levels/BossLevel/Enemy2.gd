@@ -67,6 +67,9 @@ func _on_Area2D_area_entered(area):
 	if "GreenBullet" in area.get_parent().name and not is_exploding:
 		area.get_parent().queue_free()
 		explode()
+	elif "Player" in area.get_parent().name and not area.get_parent().is_exploding and not is_exploding:
+		area.get_parent().decrease_health(50)
+		explode()
 
 func _on_GenericExplosion_animation_finished():
 	if GlobalVariables.rng.randi() % 4 == 0:
