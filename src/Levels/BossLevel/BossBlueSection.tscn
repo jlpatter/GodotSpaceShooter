@@ -52,5 +52,33 @@ __meta__ = {
 [node name="GenericExplosion" parent="." instance=ExtResource( 3 )]
 visible = false
 
+[node name="Turret1" type="Node2D" parent="."]
+position = Vector2( -41.4141, 5.25561 )
+
+[node name="Turret2" type="Node2D" parent="."]
+position = Vector2( -34.4768, 5.46583 )
+
+[node name="Turret3" type="Node2D" parent="."]
+position = Vector2( -16.3975, 5.46583 )
+
+[node name="Turret4" type="Node2D" parent="."]
+position = Vector2( -10.301, 5.2556 )
+
+[node name="Turret5" type="Node2D" parent="."]
+position = Vector2( 10.5112, 5.46582 )
+
+[node name="Turret6" type="Node2D" parent="."]
+position = Vector2( 16.6077, 5.46582 )
+
+[node name="Turret7" type="Node2D" parent="."]
+position = Vector2( 34.4767, 5.46582 )
+
+[node name="Turret8" type="Node2D" parent="."]
+position = Vector2( 41.6244, 5.67605 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="animation_finished" from="GenericExplosion" to="." method="_on_GenericExplosion_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
