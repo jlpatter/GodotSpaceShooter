@@ -2,7 +2,6 @@ extends Node2D
 
 const SPEED = 200.0
 
-var health = 100.0
 var is_exploding = false
 
 onready var green_bullet_prefab = preload("res://src/Actors/GreenBullet.tscn")
@@ -32,18 +31,18 @@ func _physics_process(delta):
 	position += velocity * SPEED * delta
 
 func increase_health(var amount):
-	if health + amount <= 100:
-		health += amount
+	if PlayerVariables.health + amount <= 100:
+		PlayerVariables.health += amount
 	else:
-		health = 100
-	get_parent().get_node("CanvasLayer/BossUI/HealthBar").value = health
+		PlayerVariables.health = 100
+	get_parent().get_node("CanvasLayer/BossUI/HealthBar").value = PlayerVariables.health
 
 func decrease_health(var amount):
-	if health - amount >= 0:
-		health -= amount
+	if PlayerVariables.health - amount >= 0:
+		PlayerVariables.health -= amount
 	else:
-		health = 0
-	get_parent().get_node("CanvasLayer/BossUI/HealthBar").value = health
+		PlayerVariables.health = 0
+	get_parent().get_node("CanvasLayer/BossUI/HealthBar").value = PlayerVariables.health
 	if PlayerVariables.health <= 0 and not is_exploding:
 			explode()
 
