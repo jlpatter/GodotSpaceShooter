@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPEED = 100.0
+const SPEED = 200.0
 const ROTATION_SPEED = 2.0
 
 var timer = 15.0
