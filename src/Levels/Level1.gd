@@ -52,7 +52,7 @@ func _ready():
 		enemy.position = Vector2(GlobalVariables.rng.randf() * 1000 - 100, GlobalVariables.rng.randf() * 1000 - 100)
 		enemy.pause_mode = Node.PAUSE_MODE_STOP
 	
-	if GlobalVariables.rng.randi() % 4 == 0:
+	if GlobalVariables.rng.randi() % 3 == 0:
 		if MapVariables.current_color == "Green":
 			add_gem(green_gem_prefab, Color.green)
 		elif MapVariables.current_color == "Red":
