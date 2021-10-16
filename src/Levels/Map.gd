@@ -78,6 +78,8 @@ func show_gems():
 		$BlueGem.show()
 	if PlayerVariables.has_yellow:
 		$YellowGem.show()
+	if PlayerVariables.has_green and PlayerVariables.has_red and PlayerVariables.has_blue and PlayerVariables.has_yellow:
+		$BossButton.show()
 
 func _on_EngageButton_pressed():
 	var pressed_destinations = []
@@ -118,3 +120,7 @@ func _on_SectorButton_pressed():
 
 func _on_GoBackButton_pressed():
 	get_parent().get_parent().get_node("Player").activate_map()
+
+
+func _on_BossButton_pressed():
+	get_tree().change_scene("res://src/Levels/BossLevel/BossLevel.tscn")

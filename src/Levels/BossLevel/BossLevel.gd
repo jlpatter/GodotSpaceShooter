@@ -25,6 +25,9 @@ func _process(delta):
 			get_node("CanvasLayer2/PauseMenu").show()
 			get_tree().paused = true
 	
+	if get_node_or_null("BossGreenSection") == null and get_node_or_null("BossRedSection") == null and get_node_or_null("BossBlueSection") == null and get_node_or_null("BossYellowSection") == null and not get_node("CanvasLayer2/YouWinLabel").visible:
+		get_node("CanvasLayer2/YouWinLabel").show()
+	
 	if not get_tree().paused:
 		if timer < 0.0:
 			var black_object = null
