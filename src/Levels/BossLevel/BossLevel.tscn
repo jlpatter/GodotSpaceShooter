@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Levels/BossLevel/BossPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Levels/BossLevel/ColorRect.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/Levels/BossLevel/BossBlueSection.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Fonts/Ubuntu-R.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://src/Misc/PauseMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Levels/BossLevel/BossYellowSection.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
@@ -69,3 +70,6 @@ position = Vector2( 507.627, 104.81 )
 [node name="BossBlueSection" parent="." instance=ExtResource( 7 )]
 pause_mode = 1
 position = Vector2( 311.407, 109.566 )
+
+[node name="BossYellowSection" parent="." instance=ExtResource( 10 )]
+position = Vector2( 135.642, 93.7936 )

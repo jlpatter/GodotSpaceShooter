@@ -10,6 +10,7 @@ func _ready():
 	$BossGreenSection.position = Vector2(get_viewport().size.x * (4.0 / 5.0), get_node("BossGreenSection/BossGreenSection").texture.get_height())
 	$BossRedSection.position = Vector2(get_viewport().size.x * (3.0 / 5.0), get_node("BossRedSection/BossRedSection").texture.get_height())
 	$BossBlueSection.position = Vector2(get_viewport().size.x * (2.0 / 5.0), get_node("BossBlueSection/BossBlueSection").texture.get_height())
+	$BossYellowSection.position = Vector2(get_viewport().size.x * (1.0 / 5.0), get_node("BossYellowSection/BossYellowSection").texture.get_height())
 	$Player.position = Vector2(get_viewport().size.x / 2.0, get_viewport().size.y - get_node("Player/PlayerShip").texture.get_height())
 
 func _process(delta):
